@@ -30,7 +30,7 @@ url: "https://malloc42.github.io" # the base hostname & protocol for your site, 
 github_username: malloc-42 
 
 # Build settings
-theme: minima
+theme: jekyll-theme-minimal
 # theme: bulma-clean-theme
 plugins:
   - jekyll-feed
