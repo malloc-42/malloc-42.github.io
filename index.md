@@ -1,6 +1,6 @@
 ---
 title: malloc(42) 
-subtitle: This PR fixes Issue: 42 
+subtitle: This PR fixes issue 42 
 layout: page
 show_sidebar: true
 ---

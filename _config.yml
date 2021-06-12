@@ -1,8 +1,8 @@
 # Site Settings
 lang: en
-title: Bulma Clean Theme
-tagline: Bulma Clean Theme
-email: your-email@domain.com
+title: malloc(42) 
+tagline: This PR fixes issue 42 
+email: malloc42.dev@gmail.com 
 description: >
   The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites
 baseurl: ""
