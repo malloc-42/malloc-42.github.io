@@ -5,7 +5,7 @@ tagline: Bulma Clean Theme
 email: your-email@domain.com
 description: >
   The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites
-baseurl: "/bulma-clean-theme"
+baseurl: ""
 url: "https://malloc-42.github.io"
 permalink: pretty
 #favicon: /path/to/favicon.png
@@ -31,6 +31,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - kramdown-parser-gfm
+  - github-pages
 
 exclude: 
   - Gemfile
