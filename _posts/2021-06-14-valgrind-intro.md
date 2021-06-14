@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Gentle Introduction to Valgrind!"
-date:   2021-04-29 14:14:49 +0530
+date:   2021-06-14 14:14:49 +0530
 categories: intro
 ---
 
@@ -79,7 +79,11 @@ Since Valgrind emulates the hardware and does more tracking and bookkeeping, run
 
 Valgrind's site states
 ```
-So what's the catch? The main one is that programs run significantly more slowly under Valgrind. Depending on which tool you use, the slowdown factor can range from 5--100. This slowdown is similar to that of similar debugging and profiling tools. But since you don't have to use Valgrind all the time, this usually isn't too much of a problem. The hours you'll save debugging will more than make up for it.
+So what's the catch? The main one is that programs run significantly more slowly under Valgrind.
+Depending on which tool you use, the slowdown factor can range from 5--100. 
+This slowdown is similar to that of similar debugging and profiling tools. 
+But since you don't have to use Valgrind all the time, this usually isn't too much of a problem.
+The hours you'll save debugging will more than make up for it.
 ```
 
 ## Epilogue
