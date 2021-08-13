@@ -4,14 +4,14 @@ title: malloc(42)
 tagline: This PR fixes issue 42 
 email: malloc42.dev@gmail.com 
 description: >
-  The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites
+  Malloc(42)'s website, we talk about C++, OpenSource and more.
 baseurl: ""
 url: "https://malloc-42.github.io"
 permalink: pretty
 #favicon: /path/to/favicon.png
-gh_sponsor: chrisrhymes
+#gh_sponsor: chrisrhymes
 #hide_share_buttons: true
-#theme_color: '#eeeeee'
+theme_color: '#000000'
 #fixed_navbar: top
 
 paginate: 5
@@ -62,19 +62,11 @@ defaults:
       path: ""
       type: "posts"
     values:
-      author: "C.S. Rhymes"
+      author: "malloc(42)"
       layout: post
-      image: https://via.placeholder.com/1200x800
       show_sidebar: true
 
 markdown: kramdown
 highlighter: rouge
 
 footer_menu: example_footer_menu
-
-collections:
-  products: 
-    output: true
-    layout: product
-    image: https://via.placeholder.com/800x600
-    show_sidebar: false
