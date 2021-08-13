@@ -3,6 +3,8 @@ layout: post
 title:  "Gentle Introduction to Valgrind!"
 date:   2021-06-14 14:14:49 +0530
 categories: intro
+show_sidebar: false
+author: "Kshitij Kalambarkar"
 ---
 
 ## Valgrind
