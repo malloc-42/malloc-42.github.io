@@ -115,4 +115,6 @@ std::remove_reference_t<T>
 std::add_lvalue_reference<T>
 ```
 
+**Reference**: As seen on https://krshrimali.github.io/Alias-Declarations-over-Typedefs-CPP/.
+
 Thanks for reading!
