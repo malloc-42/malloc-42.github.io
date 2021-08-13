@@ -106,7 +106,7 @@ std::add_lvalue_reference<T>::type // yields T& from T
 
 In case you are applying the above transformations inside a template to a type parameter, you'll have to use `typename`. This is because they have been implemented as typedefs inside templatized structs. 
 
-In C++14, there were equivalent alias templates:
+In C++14, their alias equivalent were added which do not require you to prefix `typename`.
 
 ```cpp
 // equivalents to the above 3 transformations 
