@@ -1,21 +1,23 @@
 ---
 layout: post
 title:  "Installing PyTorch From Source!"
-date:   2021-07-25 
+date:   2021-07-25
 categories: intro
+author: "Khushi Agrawal"
+show_sidebar: false
 ---
-
-![pytorch-logo-dark](https://user-images.githubusercontent.com/62256509/126929469-67b1c7d2-622d-44b4-92ed-5d4a1f5947ac.png)
 
 Hi Everyone! In this blog post, we'll be discussing setting up a developer environment for PyTorch. Our goal is to build PyTorch from source on any of the Linux distributions. Presently, I'm working on the Ubuntu 20.04 distribution of Linux in WSL (Windows Subsystem Linux). You can install any other Ubuntu version of your choice, the procedure will be the same because all the Ubuntu versions are Debian-based. Enjoy the installation process! Yey!!  
 
-### Step 1: Installing Anaconda
+In case you are interesting in watching a video tutorial on this, jump to the [Video Section](#Video Tutorial).
+
+## Step 1: Installing Anaconda
 
 I prefer to install Anaconda first because things become easy to install. You can download Anaconda from [here](https://www.anaconda.com/products/individual#download-section). The main advantage to installing Anaconda is that besides controlled dependency versions, we will get a high-quality BLAS library (MKL) which is used to accelerate various math functions and applications. 
 
 After downloading Anaconda3 we have to run the following command:
 
-```
+```bash
 chmod +x Anaconda3-2021.05-Linux-x86_64.sh
 ```
 
@@ -23,35 +25,35 @@ Here, the `Anaconda3-2021.05-Linux-x86_64.sh` is the name of the downloaded Anac
 
 To install Anaconda, use the command:
 
-```
+```bash
 ./Anaconda3-2021.05-Linux-x86_64.sh
 ```
 
 Now, confirm the license agreement and continue the following procedure. After that, I advise you to either refresh or restart your terminal. I will be restarting my shell using the `exec bash` command. In case you are using a different shell than `bash`, like `zsh` - you can do: `exec zsh`.
 
-### Step 2: Installing PyTorch 
+## Step 2: Installing PyTorch 
 
 Our next task is to create a PyTorch development environment, run the following code:
 
-```
+```bash
 conda create --name pytorch-dev python=3.8.10
 ```
 
 `pytorch-dev` is just the name of the environment, I want to create. You can choose yours! We need to activate our development environment use:
 
-```
+```bash
 conda activate pytorch-dev
 ```
 
 Now, we have to install PyTorch from the source, use the following command:
 
-```
+```bash
 conda install astunparse numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses
 ```
 
 **Note:** Step 3, Step 4 and Step 5 are not mandatory, install only if your laptop has GPU with CUDA support. 
 
-### Step 3: Install CUDA 
+## Step 3: Install CUDA 
 
 We will be compiling our code using CUDA, we will be installing the required toolkit from [here](https://developer.nvidia.com/cuda-downloads). I'll be downloading CUDA Toolkit 11.2.2 version. These options are selected as per my requirement:
 
@@ -59,7 +61,7 @@ We will be compiling our code using CUDA, we will be installing the required too
 
 Now, run the following commands to install CUDA on your machine.
 
-```
+```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
 sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda-repo-wsl-ubuntu-11-2-local_11.2.2-1_amd64.deb
@@ -71,13 +73,13 @@ sudo apt-get -y install cuda
 
 For Linux:
 
-```
+```bash
 conda install -c pytorch magma-cuda112
 ```
 
 Before installing check the CUDA version you have installed, then install. 
 
-### Step 4: Install cuDNN
+## Step 4: Install cuDNN
 
 This is NVIDIA's `CUDA Deep Neural Network Library` (cuDNN). It is a GPU accelerated library. The main advantage of using these libraries are:
 
@@ -88,22 +90,22 @@ Visit [this](https://developer.nvidia.com/cudnn) link to download cuDNN. Check o
 
 Now, we need to extract our `cuDNN` package installed, use the following command:
 
-```
+```bash
 tar -xvzf cudnn-11.3-linux-x64-v8.2.1.32.tgz
 ```
 I created a folder named `cudnn` and extracted the `cuDNN` file there.
 
-### Step 5: Setting Paths
+## Step 5: Setting Paths
 
 We can check whether CUDA is installed or not using `ls /usr/local/cuda` command. To set the path use:
 
-```
+```bash
 export PATH=/usr/local/cuda/bin/:$PATH
 ```
 
 Setting the path for `lib` folder of CUDA using:
 
-```
+```bash
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 ```
 
@@ -111,44 +113,50 @@ We can check whether the `CUDA compiler` works or not using the `nvcc` command.
 
 Last step to go! We just need to copy all the `include` and `lib64` header files to the `CUDA` folder. First, we have to go to the file where we have saved `cudnn` files then run the following commands:
 
-```
+```bash
 sudo cp -r cuda/include/cudnn* /usr/local/cuda/include
 sudo cp -r cuda/lib64/libcudnn* /usr/local/cuda/lib64
 ```
 
 ### Step 6: Installing Pytorch
 
-Now, it is ready to use, we just have to clone the PyTorch directory. We will run the following command:
+Now, it is ready to use, we just have to clone the PyTorch directory (you can also clone your forked repo, in case you want to contribute or suggest some changes). We will run the following command:
 
-```
+```bash
 git clone https://github.com/pytorch/pytorch
 ```
 
 Let's update our submodule using:
 
-```
+```bash
 git submodule sync
 git submodule update --init --recursive
 ```
 
-One more step to go!!! Install PyTorch on Linux by running the following command:
+One more step to go! Build PyTorch from source on Linux by running the following command:
 
-```
+```bash
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 python3 setup.py develop
 ```
 
 I'll be installing for development purposes, therefore used `develop` in the command line. Use can also use `install` instead of `develop` to install `setup.py`.
 
-To check CMAKE_PREFIX_PATH, use: `echo $CMAKE_PREFIX_PATH` command.
+To check `CMAKE_PREFIX_PATH`, use: `echo $CMAKE_PREFIX_PATH` command.
 
-Building PyTorch can take a long, so be patient! Hurrah!!! We succeeded in installing PyTorch from the source. 
+Building PyTorch can take a long, so be patient! We succeeded in installing PyTorch from the source. 
 
-### Acknowledgment
+## Video Tutorial
+
+Checkout the video below on our [YouTube Channel](https://www.youtube.com/channel/UCV1XiuvBIXrs5qMvsyueqrg):
+
+{% include youtube.html video="AIkvOtHJZeo" %}
+
+## Acknowledgment
 
 I'd love to thank [Kshitij Kalambarkar](https://github.com/kshitij12345) and [Kushashwa Ravi Shrimali](https://github.com/krshrimali) for their useful suggestions, feedback, and help. Cheers to you guys!
 
-**References:**
+## References
 
 * https://github.com/pytorch/pytorch
 * https://www.youtube.com/watch?v=AIkvOtHJZeo&list=PLFYhn53SnsgJI2jjjsV0bZu3tdfi361wv&index=1
