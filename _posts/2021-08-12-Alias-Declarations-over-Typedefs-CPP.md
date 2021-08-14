@@ -8,6 +8,8 @@ categories: [Blog, C++]
 tags: [Blog, C++]
 blog: [C++]
 published: true
+author: "Kushashwa Ravi Shrimali"
+show_sidebar: false
 excerpt_separator: <!--more-->
 ---
 
