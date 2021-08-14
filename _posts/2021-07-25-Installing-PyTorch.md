@@ -9,7 +9,7 @@ show_sidebar: false
 
 Hi Everyone! In this blog post, we'll be discussing setting up a developer environment for PyTorch. Our goal is to build PyTorch from source on any of the Linux distributions. Presently, I'm working on the Ubuntu 20.04 distribution of Linux in WSL (Windows Subsystem Linux). You can install any other Ubuntu version of your choice, the procedure will be the same because all the Ubuntu versions are Debian-based. Enjoy the installation process! Yey!!  
 
-In case you are interesting in watching a video tutorial on this, jump to the [Video Section](#Video Tutorial).
+In case you are interesting in watching a video tutorial on this, jump to the "Video Tutorial" section towards the end.
 
 ## Step 1: Installing Anaconda
 
