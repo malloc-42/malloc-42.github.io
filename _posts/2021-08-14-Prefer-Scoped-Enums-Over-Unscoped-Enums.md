@@ -44,7 +44,7 @@ auto white = false; // error: white already declared in this scope
 
 ```cpp
 // Assume Color is declared like above
-Color c = red; // valid since Enumerator white is leaded to the scope Color is in
+Color c = red; // valid since Enumerator white is leaked to the scope Color is in
 if (c < 10) {  // valid, implicit conversion
     // ... do something
 }
@@ -53,7 +53,7 @@ else if (c < 10.5) {  // also valid, implicit conversion
 }
 ```
 
-The C++-9 Style Enums are termed as uncoped Enums (because of leaking names).
+The C++-98 Style Enums are termed as Unscoped Enums (because of leaking names).
 
 **C++-11 Scoped Enums**:
 
@@ -204,6 +204,13 @@ auto val = std::get<toUType(InfoFields::uEmail)>(uInfo);
     * Stackoverflow: https://stackoverflow.com/questions/4757565/what-are-forward-declarations-in-c
 2. Are Unscoped Enums still helpful?
     * Stackoverflow: https://stackoverflow.com/questions/27320603/are-unscoped-enumerations-still-useful
+3. Proposal for forward declaration to enums (accepted), dated 2008: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2764.pdf
+4. Forward Declaring an Enum in C++? 
+    * Stackoverflow: https://stackoverflow.com/questions/71416/forward-declaring-an-enum-in-c
+
+## Acknowledgement (Reviews)
+
+Thanks to [Kshitij Kalambarkar](kshitij12345.github.io) for helping in reviewing the blog. It's always helpful to get another set of eyes to what you write. :)
 
 **Note**: This blog was originally published here: https://krshrimali.github.io/Prefer-Scoped-Enums-Over-Unscoped-Enums/
 
