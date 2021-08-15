@@ -210,7 +210,7 @@ auto val = std::get<toUType(InfoFields::uEmail)>(uInfo);
 
 ## Acknowledgement (Reviews)
 
-Thanks to [Kshitij Kalambarkar](kshitij12345.github.io) for helping in reviewing the blog. It's always helpful to get another set of eyes to what you write. :)
+Thanks to [Kshitij Kalambarkar](https://kshitij12345.github.io/) for helping in reviewing the blog. It's always helpful to get another set of eyes to what you write. :)
 
 **Note**: This blog was originally published here: https://krshrimali.github.io/Prefer-Scoped-Enums-Over-Unscoped-Enums/
 
